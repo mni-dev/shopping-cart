@@ -1,41 +1,35 @@
 //phone 
-function updatePhoneNumber(isIncreasing) {
-    const phoneInput = document.getElementById('phone-number');
-    let phoneNumber = phoneInput.value;
+function updateProductValue(product, isIncreasing) {
+    const productInput = document.getElementById(product + '-number');
+    let productNumber = productInput.value;
     if (isIncreasing == true) {
-        phoneNumber = parseInt(phoneNumber) + 1;
+        productNumber = parseInt(productNumber) + 1;
     }
-    else if (phoneNumber > 0) {
-        phoneNumber = parseInt(phoneNumber) - 1;
+    else if (productNumber > 0) {
+        productNumber = parseInt(productNumber) - 1;
     }
-    phoneInput.value = phoneNumber;
-    const phoneTotal = document.getElementById('phone-total');
-    phoneTotal.innerText = phoneNumber * 1219;
+    productInput.value = productNumber;
+    let phoneTotal = document.getElementById(product + '-total');
+    phoneTotal.innerText = productNumber * 1219;
+    
+    let caseTotal = document.getElementById(product + '-total');
+    caseTotal.innerText = productNumber * 59;
 }
+//Phone
 function raiseNum() {
-    updatePhoneNumber(true);
+    updateProductValue('phone', true);
 }
 function lowerNum() {
-    updatePhoneNumber(false);
+    updateProductValue('phone', false);
 }
 
 //casing
-function updateCaseNumber(isIncreasing){
-    const caseInput = document.getElementById('case-number');
-    let caseNumber = caseInput.value;
-    if(isIncreasing){
-        caseNumber = parseInt(caseNumber) + 1;
-    }
-    else if(caseNumber > 0){
-        caseNumber = parseInt(caseNumber) - 1;
-    }
-    caseInput.value = caseNumber;
-    const caseTotal = document.getElementById('case-total');
-    caseTotal.innerText = caseNumber * 59;
-}
 function addNum() {
-    updateCaseNumber(true);
+    updateProductValue('case', true);
 }
 function minusNum() {
-     updateCaseNumber(false);
+    updateProductValue('case', false);
 }
+
+//Sub-total, tax and Total
+ 
